@@ -68,7 +68,7 @@
             console.log(response);
             for( var i = 0; i< response.data.length; i++){
                 $("#movies-view").append("<h5> Rating :"+ response.data[i].rating + "</h5>");
-            // $("#movies-view").append("<img src=' " + response.Poster + "'"+ ">");
+                $("#movies-view").append("<img src=' " + response.data[i].images.fixed_height_still.url + "'"+ ">");
             }
             
 
