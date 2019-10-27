@@ -25,7 +25,6 @@
    img{
        width: 150px;
        height: 150px;
-       /* float: left; */
        padding: 20px;
    }
     #movie-form{
@@ -33,10 +32,15 @@
 
     }
     .rating{
-      width: 450px;
+      width: 200px;
       height: 200px;
       float: left;
+      display: block;
     }
+    #movie-form{
+      height: 200px;
+    }
+    
   </style>
 </head>
 
@@ -63,7 +67,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       // Initial array of movies
-      var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+      var movies = ["coco", "cars", "toy story", "up", "monsters inc", "cars 2", "toy story 2", "inside out", "ratatouille", "finding nemo", "brave", "a bugs life"];
 
       // displayMovieInfo function re-renders the HTML to display the appropriate content
       function displayMovieInfo() {
