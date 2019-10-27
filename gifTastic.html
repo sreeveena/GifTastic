@@ -25,12 +25,17 @@
    img{
        width: 150px;
        height: 150px;
-       float: left;
+       /* float: left; */
        padding: 20px;
    }
     #movie-form{
         float: right;
 
+    }
+    .rating{
+      width: 450px;
+      height: 200px;
+      float: left;
     }
   </style>
 </head>
@@ -72,9 +77,11 @@
           method: "GET"
         }).then(function(response) {          
             console.log(response);
+            $("#movies-view").empty();
             for( var i = 0; i< response.data.length; i++){
-                // $("#movies-view").append("<h5> Rating :"+ response.data[i].rating + "</h5>");
-                $("#movies-view").append("<img data-state='still' data-still='"+ response.data[i].images.fixed_height_still.url + "' data-animated='"+ response.data[i].images.fixed_height.url + "' src=' " + response.data[i].images.fixed_height_still.url + "'"+ ">");
+              $("#movies-view").append("<div class= 'rating' id='movie"+ i + "'>");
+                $("#movie"+ i ).append("<p> Rating :"+ response.data[i].rating + "</p>");
+                $("#movie"+ i ).append("<img data-state='still' data-still='"+ response.data[i].images.fixed_height_still.url + "' data-animated='"+ response.data[i].images.fixed_height.url + "' src=' " + response.data[i].images.fixed_height_still.url + "'"+ ">");
             }
         });
 
@@ -92,7 +99,7 @@
         for (var i = 0; i < movies.length; i++) {
 
           // Then dynamicaly generates buttons for each movie in the array
-          // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+          // This code $("<button>") is all jQuery needs to create the beginning and end tag. 
           var newButton = $("<button>");
           // Adds a class of movie to our button
           newButton.addClass("movie");
