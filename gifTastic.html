@@ -22,9 +22,15 @@
       color: white;
       border-radius: 4px;
     }
-   
+   img{
+       width: 150px;
+       height: 150px;
+       float: left;
+       padding: 20px;
+   }
     #movie-form{
         float: right;
+
     }
   </style>
 </head>
@@ -67,14 +73,13 @@
         }).then(function(response) {          
             console.log(response);
             for( var i = 0; i< response.data.length; i++){
-                $("#movies-view").append("<h5> Rating :"+ response.data[i].rating + "</h5>");
-                $("#movies-view").append("<img src=' " + response.data[i].images.fixed_height_still.url + "'"+ ">");
+                // $("#movies-view").append("<h5> Rating :"+ response.data[i].rating + "</h5>");
+                $("#movies-view").append("<img data-state='still' data-still='"+ response.data[i].images.fixed_height_still.url + "' data-animated='"+ response.data[i].images.fixed_height.url + "' src=' " + response.data[i].images.fixed_height_still.url + "'"+ ">");
             }
-            
-
         });
 
       }
+       
 
       // Function for displaying movie data
       function renderButtons() {
@@ -116,6 +121,20 @@
 
       // Adding click event listeners to all elements with a class of "movie"
       $(document).on("click", ".movie", displayMovieInfo);
+      $(document).on("click", "img", function(){
+        var state = $(this).attr("data-state");
+        console.log(state);
+        if(state == "still"){
+         $(this).attr("src", $(this).attr("data-animated"));
+          console.log($(this).attr("src"));
+          $(this).attr("data-state", "animated");
+        }else{
+          $(this).attr("src", $(this).attr("data-still"));
+          console.log($(this).attr("src"));
+          $(this).attr("data-state", "still");
+        }
+
+      });
 
       // Calling the renderButtons function to display the intial buttons
       renderButtons();
