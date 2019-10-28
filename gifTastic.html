@@ -61,7 +61,7 @@
       <input id="add-movie" type="submit" value="Submit">
     </form>
 
-    <!-- Movies will get dumped here -->
+    <!-- Movies will be stored here -->
     <div id="movies-view"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -71,7 +71,7 @@
 
       // displayMovieInfo function re-renders the HTML to display the appropriate content
       function displayMovieInfo() {
-        //ApiKey=  vlcL7s4qPXsxTj6GgNON6UQyNAbmQIH5
+        
         var movie = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&limit=10&api_key=vlcL7s4qPXsxTj6GgNON6UQyNAbmQIH5";
 
@@ -84,8 +84,8 @@
             $("#movies-view").empty();
             for( var i = 0; i< response.data.length; i++){
               $("#movies-view").append("<div class= 'rating' id='movie"+ i + "'>");
-                $("#movie"+ i ).append("<p> Rating :"+ response.data[i].rating + "</p>");
-                $("#movie"+ i ).append("<img data-state='still' data-still='"+ response.data[i].images.fixed_height_still.url + "' data-animated='"+ response.data[i].images.fixed_height.url + "' src=' " + response.data[i].images.fixed_height_still.url + "'"+ ">");
+              $("#movie"+ i ).append("<p> Rating :"+ response.data[i].rating + "</p>");
+              $("#movie"+ i ).append("<img  data-state='still' data-still='"+ response.data[i].images.fixed_height_still.url + "' data-animated='"+ response.data[i].images.fixed_height.url + "' src=' " + response.data[i].images.fixed_height_still.url + "'"+ ">");
             }
         });
 
@@ -99,11 +99,11 @@
         // (this is necessary otherwise you will have repeat buttons)
         $("#buttons-view").empty();
 
-        // Loops through the array of movies
+        // Loop through the array of movies
         for (var i = 0; i < movies.length; i++) {
 
           // Then dynamicaly generates buttons for each movie in the array
-          // This code $("<button>") is all jQuery needs to create the beginning and end tag. 
+          
           var newButton = $("<button>");
           // Adds a class of movie to our button
           newButton.addClass("movie");
@@ -132,16 +132,17 @@
 
       // Adding click event listeners to all elements with a class of "movie"
       $(document).on("click", ".movie", displayMovieInfo);
+      //adding click event listeners to all images to make animated to still
       $(document).on("click", "img", function(){
         var state = $(this).attr("data-state");
-        console.log(state);
+        // console.log(state);
         if(state == "still"){
          $(this).attr("src", $(this).attr("data-animated"));
-          console.log($(this).attr("src"));
+          // console.log($(this).attr("src"));
           $(this).attr("data-state", "animated");
         }else{
           $(this).attr("src", $(this).attr("data-still"));
-          console.log($(this).attr("src"));
+          // console.log($(this).attr("src"));
           $(this).attr("data-state", "still");
         }
 
