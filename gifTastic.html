@@ -71,7 +71,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       // Initial array of movies
-      var movies = ["coco", "cars", "toy story", "up", "monsters inc", "cars 2", "toy story 2", "inside out", "ratatouille", "finding nemo", "brave", "a bugs life"];
+      var movies = ["coco", "cars", "toy story", "up", "monsters inc", "cars 2", "toy story 2", "inside out", "ratatouille", "finding nemo", "brave", "a bug's life"];
 
       // displayMovieInfo function re-renders the HTML to display the appropriate content
       function displayMovieInfo() {
@@ -126,7 +126,7 @@
         // This line of code will grab the input from the textbox
         var movie = $("#movie-input").val().trim();
         // check if the movie is empty or some special caracters.
-        var letters = /^[0-9a-zA-Z]+[ 0-9a-zA-Z]*$/;
+        var letters = /^[0-9a-zA-Z]+[ 0-9a-zA-Z']*$/;
        if(movie.match(letters)){
         // The movie from the textbox is then added to our array
         movies.push(movie);
