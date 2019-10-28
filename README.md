@@ -124,11 +124,11 @@ In gifTastic page the following is the javascript block
 screenshot of the page
 gifTastic.html
 
-![image]()
+![image](https://user-images.githubusercontent.com/7834767/67653633-7f756c80-f907-11e9-8864-bf21b3a9713b.png)
 
 
-![image]()
+![image](https://user-images.githubusercontent.com/7834767/67653634-800e0300-f907-11e9-9762-0f39d1434cf4.png)
 
-![image]()
+![image](https://user-images.githubusercontent.com/7834767/67653635-800e0300-f907-11e9-8068-423a8a6df38c.png)
 
 
