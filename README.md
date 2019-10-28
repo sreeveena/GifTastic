@@ -7,7 +7,7 @@ Jquery
 AJAX
 
 This assignment has one HTML page with css and javascript:
-1. gifTastic.html
+1. index.html
 
 This app will create buttons of the search items and when button is clicked will display ten still images relevant to the button
 and when clicked on the image will make it gif.
