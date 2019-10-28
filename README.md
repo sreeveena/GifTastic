@@ -28,14 +28,13 @@ In gifTastic page the following is the css block
       border-radius: 4px;
     }
     #add-movie{
-    background: turquoise;
+      background: turquoise;
       color: white;
       border-radius: 4px;
     }
    img{
        width: 150px;
        height: 150px;
-       padding: 20px;
    }
     #movie-form{
         float: right;
@@ -49,6 +48,9 @@ In gifTastic page the following is the css block
     }
     #movie-form{
       height: 200px;
+    }
+    #movie-input{
+      width: 275px;
     }
   </style>
 '''
@@ -99,7 +101,10 @@ In gifTastic page the following is the javascript block
       $("#add-movie").on("click", function(event) {
         event.preventDefault();
         var movie = $("#movie-input").val().trim();
+        var letters = /^[0-9a-zA-Z]+[ 0-9a-zA-Z]*$/;
+       if(movie.match(letters)){
         movies.push(movie);
+        }
         renderButtons();
       });
       $(document).on("click", ".movie", displayMovieInfo);

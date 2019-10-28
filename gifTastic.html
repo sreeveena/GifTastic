@@ -16,16 +16,17 @@
       background: turquoise;
       color: white;
       border-radius: 4px;
+      font-size: 1em;
     }
     #add-movie{
     background: turquoise;
       color: white;
       border-radius: 4px;
+      font-size: 1em;
     }
    img{
        width: 150px;
        height: 150px;
-       padding: 20px;
    }
     #movie-form{
         float: right;
@@ -40,6 +41,9 @@
     #movie-form{
       height: 200px;
     }
+    #movie-input{
+      width: 275px;
+    }
     
   </style>
 </head>
@@ -53,7 +57,7 @@
     <div id="buttons-view"></div>
 
     <form id="movie-form">
-      <label for="movie-input"><b>Add a Movie</b></label>
+      <label for="movie-input"><b>Add a Pixar Movie</b></label>
       <br>
       <input type="text" id="movie-input"><br>
 
@@ -121,10 +125,12 @@
         event.preventDefault();
         // This line of code will grab the input from the textbox
         var movie = $("#movie-input").val().trim();
-
+        // check if the movie is empty or some special caracters.
+        var letters = /^[0-9a-zA-Z]+[ 0-9a-zA-Z]*$/;
+       if(movie.match(letters)){
         // The movie from the textbox is then added to our array
         movies.push(movie);
-
+        }
         // Calling renderButtons which handles the processing of our movie array
         renderButtons();
 
