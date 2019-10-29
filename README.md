@@ -102,7 +102,7 @@ In gifTastic page the following is the javascript block
         event.preventDefault();
         var movie = $("#movie-input").val().trim();
         var letters = /^[0-9a-zA-Z]+[ 0-9a-zA-Z']*$/;
-       if(movie.match(letters)){
+       if(movie.match(letters) && movies.indexOf(movie) == -1){
         movies.push(movie);
         }
         renderButtons();

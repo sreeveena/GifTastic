@@ -127,7 +127,10 @@
         var movie = $("#movie-input").val().trim();
         // check if the movie is empty or some special caracters.
         var letters = /^[0-9a-zA-Z]+[ 0-9a-zA-Z']*$/;
-       if(movie.match(letters)){
+        // &&  movie.includes(movies)
+        console.log(movies);
+        console.log(movie);
+       if(movie.match(letters) && movies.indexOf(movie) == -1){
         // The movie from the textbox is then added to our array
         movies.push(movie);
         }
